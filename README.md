@@ -15,3 +15,16 @@
 11. Execute a instalação das extensões: `composer update --no-dev -o`
 12. Execute a atualização do banco: `php maintenance/update.php --quick`
 13. Se tiver algum patch a aplicar, execute: `cd volumes/mediawiki;git apply ../src/patch-01.diff`
+
+## Editar topo
+
+https://www.mediawiki.org/wiki/Manual:Interface/Sitenotice
+
+
+## Menu
+
+https://www.mediawiki.org/wiki/Manual:Interface/Sidebar
+
+
+## CSS
+https://www.mediawiki.org/wiki/Manual:CSS
