@@ -434,6 +434,11 @@ wfLoadExtension( 'CreditsSource' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'AbuseFilter' );
 
+wfLoadExtension( 'Matomo' );
+$wgMatomoURL = 'matomo.mapamovsaude.net.br';
+$wgMatomoIDSite = '1';
+$wgMatomoTrackUsernames = true;
+
 # Para ativar o Modo Debug use true
 $wgShowDebug = false;
 $wgDevelopmentWarnings = false;
