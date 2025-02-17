@@ -46,7 +46,8 @@
         "mediawiki/cite-this-page": "^1.41",
         "mediawiki/code-editor": "^1.41",
         "mediawiki/no-title": "^1.41",
-        "mediawiki/css": "^1.41"
+        "mediawiki/css": "^1.41",
+        "mediawiki/matomo": "^5.0"
     },
     "repositories": [
         {
