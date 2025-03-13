@@ -38,15 +38,15 @@ $wgResourceBasePath = $wgScriptPath;
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 #$wgLogos = [
-#	'1x' => "/themes/images/logo_wikifavelas.svg",
+#	'1x' => "/themes/images/logo_wikifavelas2024.svg",
 #	'wordmark' => [
-#		"src" => "/themes/images/logo_wikifavelas.svg",
+#		"src" => "/themes/images/logo_wikifavelas2024.svg",
 #		"width" => 119,
 #		"height" => 18,
 #	],
 #	'icon' => "/themes/images/logo_wikifavelas.svg",
 #];
-$wgLogos = [ '1x' => "$wgResourceBasePath/themes/images/logo_wikifavelas.svg" ];
+$wgLogos = [ '1x' => "$wgResourceBasePath/themes/images/logo_wikifavelas2024.svg" ];
 
 
 
@@ -80,7 +80,7 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_ACCEL;
+$wgMainCacheType = CACHE_DB;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -89,6 +89,7 @@ $wgEnableUploads = true;
 $wgUseCopyrightUpload = true;
 $wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
+$wgPageFormsSimpleUpload = true;
 
 # InstantCommons allows wiki to use images from https://commons.wikimedia.org
 $wgUseInstantCommons = true;
@@ -174,7 +175,10 @@ wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
+wfLoadExtension( 'VeForAll' );
 wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'Form' );
+wfLoadExtension( 'PageForms' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
@@ -184,6 +188,7 @@ wfLoadExtension( 'WikiEditor' );
 $wgGroupPermissions['user']['writeapi'] = true;
 $wgVisualEditorSupportedSkins = ['*'];
 $wgUsePathInfo = TRUE;
+$wgDefaultUserOptions['visualeditor-enable'] = 1;
 
 # Namespaces adicionais
 define("NS_TESTES", 3000);
@@ -238,8 +243,10 @@ $wgHooks['SetupAfterCache'][] = function(){
 $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$stripState ){
 	$parser->getOutput()->addModuleStyles( 'ext.bootstrap.styles' );
 	$parser->getOutput()->addModules( 'ext.bootstrap.scripts' );
+
 	return true;
 };
+
 
 #Bootstrap Components
 wfLoadExtension( 'BootstrapComponents' );
@@ -247,9 +254,8 @@ $wgBootstrapComponentsWhitelist = true;
 $wgBootstrapComponentsEnableCarouselGalleryMode = true;
 
 // Ativar Skins alternativa com Mobile Frontend
+wfLoadExtension( 'MobileFrontend' );
 wfLoadSkin( 'MinervaNeue' );
-#wfLoadExtension( 'MobileFrontend' );
-#wfLoadSkin( 'MinervaNeue' );
 #$wgMFDefaultSkinClass = 'SkinMinerva';
 
 // Ativa o Chameleon e define como skin padrão
@@ -352,7 +358,8 @@ $wgIframe['server']['fiocruz'] = [ 'scheme' => 'https', 'domain' => 'faleconosco
 $wgIframe['server']['openstreetmap'] = [ 'scheme' => 'https', 'domain' => 'www.openstreetmap.org' ];
 $wgIframe['server']['googledocs'] = [ 'scheme' => 'https',  'domain' => 'docs.google.com'];
 $wgIframe['server']['arcgis'] = [ 'scheme' => 'https',  'domain' => 'www.arcgis.com'];
-#$wgIframe['server']['mailchimp'] = [ 'scheme' => 'https', 'domain' => 'mailchi.mp' ];
+$wgIframe['server']['boletimdigital'] = [ 'scheme' => 'https', 'domain' => 'www.boletimdigital.icict.fiocruz.br' ];
+$wgIframe['server']['viconsaga'] = [ 'scheme' => 'https', 'domain' => 'www.viconsaga.com.br' ];
 
 # Configuracoes de PDF
 // Default width for the PDF object container.
@@ -398,3 +405,6 @@ START_END_MARKER;
 #Ativar o Debug
 $wgShowDebug = false;
 $wgDevelopmentWarnings = false;
+
+#Definir a forma de contagem de verbetes
+$wgArticleCountMethod = 'any';
