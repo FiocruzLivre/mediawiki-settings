@@ -219,6 +219,7 @@ wfLoadExtension( 'WikiCategoryTagCloud' );
 wfLoadExtension( 'WikiSEO' );
 wfLoadExtension( 'ArticleRatings' );
 wfLoadExtension( 'Disambiguator' );
+wfLoadExtension( 'Kartographer' );
 
 #Easy Timeline
 wfLoadExtension( 'Timeline' );
