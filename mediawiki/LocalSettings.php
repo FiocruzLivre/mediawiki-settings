@@ -209,7 +209,6 @@ enableSemantics( 'wikifavelas.com.br' );
 
 #Extensões extras
 wfLoadExtension( 'HeadScript' );
-wfLoadExtension( 'HitCounters' );
 wfLoadExtension( 'Iframe' );
 wfLoadExtension( 'FontAwesome' );
 wfLoadExtension( 'GeoData' );
