@@ -240,6 +240,10 @@ $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$s
 	return true;
 };
 
+#Aviso de cookies
+wfLoadExtension( 'CookieWarning' );
+$wgCookieWarningEnabled = true;
+$wgCookieWarningMoreUrl = 'https://wikifavelas.com.br/index.php/Wikifavelas:Pol%C3%ADtica_de_privacidade';
 
 #Bootstrap Components
 wfLoadExtension( 'BootstrapComponents' );
