@@ -16,7 +16,6 @@
     "require": {
         "mediawiki/bootstrap": "~5.0",
         "mediawiki/chameleon-skin": "~5.0",
-        "mediawiki/semantic-media-wiki": "^5.0",
         "mediawiki/bootstrap-components": "~5.0",
         "starcitizenwiki/embedvideo": "^3.4",
         "wolfgangfahl/pdfembed": "3.0.1",
@@ -42,7 +41,8 @@
         "mediawiki/labeled-section-transclusion": "^1.43",
         "mediawiki/form": "^0.6",
         "mediawiki/ve-for-all": "^0.6",
-        "mediawiki/mobile-frontend": "^2.4.1"
+        "mediawiki/mobile-frontend": "^2.4.1",
+        "mediawiki/cookie-warning": "^0.3"
     },
     "repositories": [
         {
@@ -292,6 +292,19 @@
                 "source": {
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-MobileFrontend",
+                    "reference": "REL1_43"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/cookie-warning",
+                "type": "mediawiki-extension",
+                "version": "0.3.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-CookieWarning",
                     "reference": "REL1_43"
                 }
             }
