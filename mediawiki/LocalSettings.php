@@ -15,9 +15,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
-
-
-
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
@@ -122,7 +119,6 @@ $wgAuthenticationTokenVersion = "1";
 # web installer while LocalSettings.php is in place
 $wgUpgradeKey = getenv('WG_UPGRADE_KEY');
 
-
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
@@ -144,6 +140,10 @@ $wgDefaultSkin = "chameleon";
 # Enabled skins.
 # The following skins were automatically enabled:
 wfLoadSkin( 'Vector' );
+
+
+# End of automatically generated settings.
+# Add more configuration options below.
 
 
 # Enabled extensions. Most of the extensions are enabled by adding
@@ -175,20 +175,11 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
-wfLoadExtension( 'VisualEditor' );
-wfLoadExtension( 'VeForAll' );
-wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'Form' );
-wfLoadExtension( 'PageForms' );
-
-# End of automatically generated settings.
-# Add more configuration options below.
-#$wgShowExceptionDetails = true;
-
 #VisualEditor
+wfLoadExtension( 'VisualEditor' );
 $wgGroupPermissions['user']['writeapi'] = true;
 $wgVisualEditorSupportedSkins = ['*'];
-$wgUsePathInfo = TRUE;
+$wgUsePathInfo = true;
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
 
 # Namespaces adicionais
@@ -202,11 +193,6 @@ $wgVisualEditorAvailableNamespaces = array(
 	NS_PROJECT => true,
 	NS_TESTES => true
 );
-
-# Semantic Wiki
-wfLoadExtension( 'SemanticMediaWiki' );
-enableSemantics( 'wikifavelas.com.br' );
-
 
 #Extensões extras
 wfLoadExtension( 'HeadScript' );
@@ -227,6 +213,10 @@ wfLoadExtension( 'WikiSEO' );
 wfLoadExtension( 'ArticleRatings' );
 wfLoadExtension( 'Disambiguator' );
 wfLoadExtension( 'Kartographer' );
+wfLoadExtension( 'VeForAll' );
+wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'Form' );
+wfLoadExtension( 'PageForms' );
 
 #Easy Timeline
 wfLoadExtension( 'Timeline' );
@@ -264,7 +254,7 @@ wfLoadSkin( 'MinervaNeue' );
 
 // Ativa o Chameleon e define como skin padrão
 wfLoadSkin( 'chameleon' );
-$wgDefaultSkin='chameleon';
+$wgDefaultSkin = 'chameleon';
 
 // Definir layout Chameleon com navegação fixa para todo o site
 $egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/fixedhead.xml';
@@ -285,12 +275,16 @@ $egChameleonExternalStyleVariables = [
 	'$cmln-navbar-logo-height' => '2.3rem',
 	'$component-active-bg' => '#F27405',
 	'$theme-colors' => '("primary": #62259c, "secondary": #6c757d, "success": #28a745, "info": #17a2b8, "warning": #ffc107, "danger": #dc3545, "light": #e9ecef, "dark": #343a40, "error": #dc3545, "darker": #ced4da)',
-    '$cmln-link-formats' => "(new: ('color': #6E6E6E, 'hover-color': #FFA700 underline), stub: #f31d6c none #FF0089 underline,  extiw: #6B0CBC none #B607D6 underline, external:  #C7064E none #F7005C underline)",
+	'$cmln-link-formats' => "(new: ('color': #6E6E6E, 'hover-color': #FFA700 underline), stub: #f31d6c none #FF0089 underline,  extiw: #6B0CBC none #B607D6 underline, external:  #C7064E none #F7005C underline)",
 	'$navbar-light-color' => '#FF8112',
 	'$navbar-light-hover-color' => '#FFF',
 	'$navbar-light-active-color' => '#FFF',
 	'$enable-gradients' => '1',
 ];
+
+# Semantic Wiki
+// wfLoadExtension( 'SemanticMediaWiki' );
+// enableSemantics( 'wikifavelas.com.br' );
 
 // Enable external link icons
 $egChameleonEnableExternalLinkIcons = true;
@@ -336,8 +330,14 @@ $wgSMTP = array(
 	'password' => getenv('WG_SMTP_PASSWORD'),
 	'auth' => getenv('WG_SMTP_AUTH'),
 );
+# E-mail do FROM para envio de emails
+#$wgPasswordSender = getenv('WG_SMTP_USERNAME');
+
 # Tornar email obrigatorio
 $wgEmailConfirmToEdit = true;
+//$wgEmailAuthentication = true; //Defina como true para ativar a autenticação por correio eletrónico (confirmação) para esta wiki
+//$wgAllowRequiringEmailForResets = true; //Temporary feature flag that controls whether users will see a checkbox allowing them to require providing email during password resets.
+
 
 # Enviar email de paginas vigiadas
 $wgEnotifWatchlist = true;
@@ -409,6 +409,7 @@ START_END_MARKER;
 #Ativar o Debug
 $wgShowDebug = false;
 $wgDevelopmentWarnings = false;
+$wgShowExceptionDetails = false;
 
 #Definir a forma de contagem de verbetes
 $wgArticleCountMethod = 'any';
