@@ -133,18 +133,17 @@ $wgDiff3 = "/usr/bin/diff3";
 # The following permissions were set based on your choice in the installer
 $wgGroupPermissions['*']['edit'] = false;
 
-## Default skin: you can change the default skin. Use the internal symbolic
-## names, e.g. 'vector' or 'monobook':
-$wgDefaultSkin = "chameleon";
-
 # Enabled skins.
-# The following skins were automatically enabled:
 wfLoadSkin( 'Vector' );
-
+wfLoadSkin( 'chameleon' );
+$wgDefaultSkin = "chameleon";
 
 # End of automatically generated settings.
 # Add more configuration options below.
 
+# Namespaces adicionais
+define("NS_TESTES", 3000);
+$wgExtraNamespaces[NS_TESTES] = "Testes";
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtension( 'ExtensionName' );
@@ -175,18 +174,13 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
+
 #VisualEditor
 wfLoadExtension( 'VisualEditor' );
 $wgGroupPermissions['user']['writeapi'] = true;
 $wgVisualEditorSupportedSkins = ['*'];
 $wgUsePathInfo = true;
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
-
-# Namespaces adicionais
-define("NS_TESTES", 3000);
-$wgExtraNamespaces[NS_TESTES] = "Testes";
-
-# Ativar o VisualEditor em todos os namespaces
 $wgVisualEditorAvailableNamespaces = array(
 	NS_USER => true,
 	NS_HELP => true,
@@ -194,12 +188,18 @@ $wgVisualEditorAvailableNamespaces = array(
 	NS_TESTES => true
 );
 
-#Extensões extras
+## Extensões extras
 wfLoadExtension( 'HeadScript' );
 wfLoadExtension( 'Iframe' );
 wfLoadExtension( 'FontAwesome' );
 wfLoadExtension( 'GeoData' );
+
+# Exibir vídeos
 wfLoadExtension( 'EmbedVideo' );
+$wgEmbedVideoAddFileExtensions = true;
+$wgEmbedVideoEnableVideoHandler = true;
+$wgEmbedVideoEnableAudioHandler = true;
+
 wfLoadExtension( 'InteractiveTimeline' );
 wfLoadExtension( 'JsonConfig' );
 wfLoadExtension( 'LabeledSectionTransclusion' );
@@ -212,10 +212,8 @@ wfLoadExtension( 'WikiCategoryTagCloud' );
 wfLoadExtension( 'WikiSEO' );
 wfLoadExtension( 'ArticleRatings' );
 wfLoadExtension( 'Disambiguator' );
-wfLoadExtension( 'Kartographer' );
 wfLoadExtension( 'VeForAll' );
 wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'Form' );
 wfLoadExtension( 'PageForms' );
 
 #Easy Timeline
@@ -252,18 +250,9 @@ wfLoadExtension( 'MobileFrontend' );
 wfLoadSkin( 'MinervaNeue' );
 #$wgMFDefaultSkinClass = 'SkinMinerva';
 
-// Ativa o Chameleon e define como skin padrão
-wfLoadSkin( 'chameleon' );
-$wgDefaultSkin = 'chameleon';
-
 // Definir layout Chameleon com navegação fixa para todo o site
 $egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/fixedhead.xml';
 
-// Custom Chameleon bootstrap theme
-$egChameleonThemeFile = '/var/www/mediawiki/themes/journal/_variables.scss';
-$egChameleonExternalStyleModules = [
-	'/var/www/mediawiki/themes/journal/_bootswatch.scss' => 'afterMain',
-];
 
 // Definir as esquema de estilos via variáveis do Chameleon
 $egChameleonExternalStyleVariables = [
@@ -282,9 +271,15 @@ $egChameleonExternalStyleVariables = [
 	'$enable-gradients' => '1',
 ];
 
+// Custom Chameleon bootstrap theme
+$egChameleonThemeFile = '/var/www/mediawiki/themes/pulse/_variables.scss';
+$egChameleonExternalStyleModules = [
+	'/var/www/mediawiki/themes/pulse/_bootswatch.scss' => 'afterMain',
+];
+
 # Semantic Wiki
-// wfLoadExtension( 'SemanticMediaWiki' );
-// enableSemantics( 'wikifavelas.com.br' );
+wfLoadExtension( 'SemanticMediaWiki' );
+
 
 // Enable external link icons
 $egChameleonEnableExternalLinkIcons = true;
@@ -365,6 +360,15 @@ $wgIframe['server']['arcgis'] = [ 'scheme' => 'https',  'domain' => 'www.arcgis.
 $wgIframe['server']['boletimdigital'] = [ 'scheme' => 'https', 'domain' => 'www.boletimdigital.icict.fiocruz.br' ];
 $wgIframe['server']['viconsaga'] = [ 'scheme' => 'https', 'domain' => 'www.viconsaga.com.br' ];
 
+
+# Kartographer
+wfLoadExtension( 'Kartographer' );
+$wgKartographerMapServer = 'https://tile.openstreetmap.org';
+$wgKartographerMapServer = 'https://tileserver.map.as';
+$wgKartographerStyles = ['osm'];
+$wgKartographerDfltStyle = '';
+$wgKartographerSimpleStyleMarkers = false;
+
 # Configuracoes de PDF
 // Default width for the PDF object container.
 $wgPdfEmbed['width'] = 800;
@@ -382,11 +386,6 @@ $wgFileExtensions = array_merge(
 );
 $wgSVGConverter = 'ImageMagick';
 $wgAllowTitlesInSVG = true;
-
-# Exibir vídeos
-$wgEmbedVideoAddFileExtensions = true;
-$wgEmbedVideoEnableVideoHandler = true;
-$wgEmbedVideoEnableAudioHandler = true;
 
 #Suprime aviso do EmbedVideo de funções deprecadas do PHP
 $wgDeprecationReleaseLimit = '1.0';
@@ -413,3 +412,6 @@ $wgShowExceptionDetails = false;
 
 #Definir a forma de contagem de verbetes
 $wgArticleCountMethod = 'any';
+
+#Add a call to enableSemantics() to the end of the "LocalSettings.php" file. 
+enableSemantics( 'wikifavelas.com.br' );
