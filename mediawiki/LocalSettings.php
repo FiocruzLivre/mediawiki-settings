@@ -80,8 +80,15 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_DB;
+$wgMainCacheType = CACHE_ACCEL;
+$wgParserCacheType = CACHE_DB;
+$wgSessionCacheType = CACHE_DB;
 $wgMemCachedServers = [];
+
+## Set $wgCacheDirectory to a writable directory on the web server
+## to make your wiki go slightly faster. The directory should not
+## be publicly accessible from the web.
+$wgCacheDirectory = "$IP/cache";
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -104,11 +111,6 @@ $wgLanguageCode = "pt-br";
 
 # Time zone
 $wgLocaltimezone = "America/Sao_Paulo";
-
-## Set $wgCacheDirectory to a writable directory on the web server
-## to make your wiki go slightly faster. The directory should not
-## be publicly accessible from the web.
-#$wgCacheDirectory = "$IP/cache";
 
 $wgSecretKey = getenv('WG_SECRET_KEY');
 
