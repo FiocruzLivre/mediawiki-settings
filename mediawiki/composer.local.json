@@ -42,7 +42,8 @@
         "mediawiki/ve-for-all": "^0.6",
         "mediawiki/mobile-frontend": "^2.4.1",
         "mediawiki/cookie-warning": "^0.3",
-        "mediawiki/semantic-media-wiki": "^5.0.0"
+        "mediawiki/semantic-media-wiki": "^5.0.0",
+        "mediawiki/semantic-result-formats": "^5.0.0"
     },
     "repositories": [
         {
