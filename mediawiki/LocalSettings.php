@@ -417,3 +417,6 @@ $wgArticleCountMethod = 'any';
 
 #Add a call to enableSemantics() to the end of the "LocalSettings.php" file. 
 enableSemantics( 'wikifavelas.com.br' );
+
+# Colocar em modo manutenção (somente leitura)
+// $wgReadOnly = 'Estamos realizando manutenção no sistema. Você poderá voltar a editar';
