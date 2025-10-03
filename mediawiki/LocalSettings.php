@@ -425,6 +425,15 @@ wfLoadExtension( 'CreditsSource' );
 #Guided Tour (Depende do log de eventos)
 #wfLoadExtension( 'GuidedTour' );
 
+#Ativar o Memcached
+$wgMainCacheType = CACHE_MEMCACHED;
+$wgParserCacheType = CACHE_MEMCACHED; // opcional
+$wgMessageCacheType = CACHE_MEMCACHED; // opcional
+$wgMemCachedServers = [ '127.0.0.1:11211' ];
+
+#$wgSessionsInObjectCache = true; // opcional | A documentação fala que saiu na versão 1.33 (acredito que seja do Mediawiki)
+$wgSessionCacheType = CACHE_MEMCACHED; // opcional
+
 #Ativar o Debug
 $wgShowDebug = false;
 $wgDevelopmentWarnings = false;
