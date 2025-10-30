@@ -274,9 +274,9 @@ $egChameleonExternalStyleVariables = [
 ];
 
 // Custom Chameleon bootstrap theme
-$egChameleonThemeFile = '/var/www/mediawiki/themes/pulse/_variables.scss';
+$egChameleonThemeFile = '/var/www/mediawiki/themes/journal/_variables.scss';
 $egChameleonExternalStyleModules = [
-	'/var/www/mediawiki/themes/pulse/_bootswatch.scss' => 'afterMain',
+	'/var/www/mediawiki/themes/journal/_bootswatch.scss' => 'afterMain',
 ];
 
 # Semantic Wiki
