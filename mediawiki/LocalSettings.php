@@ -238,9 +238,9 @@ $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$s
 };
 
 #Aviso de cookies
-wfLoadExtension( 'CookieWarning' );
-$wgCookieWarningEnabled = true;
-$wgCookieWarningMoreUrl = 'https://wikifavelas.com.br/index.php/Wikifavelas:Pol%C3%ADtica_de_privacidade';
+#wfLoadExtension( 'CookieWarning' );
+#$wgCookieWarningEnabled = true;
+#$wgCookieWarningMoreUrl = 'https://wikifavelas.com.br/index.php/Wikifavelas:Pol%C3%ADtica_de_privacidade';
 
 #Bootstrap Components
 wfLoadExtension( 'BootstrapComponents' );
@@ -248,8 +248,8 @@ $wgBootstrapComponentsWhitelist = true;
 $wgBootstrapComponentsEnableCarouselGalleryMode = true;
 
 // Ativar Skins alternativa com Mobile Frontend
-wfLoadExtension( 'MobileFrontend' );
-wfLoadSkin( 'MinervaNeue' );
+#wfLoadExtension( 'MobileFrontend' );
+#wfLoadSkin( 'MinervaNeue' );
 #$wgMFDefaultSkinClass = 'SkinMinerva';
 
 // Definir layout Chameleon com navegação fixa para todo o site
