@@ -416,6 +416,11 @@ $wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content.
 
 wfLoadExtension('UniversalLanguageSelector');
 
+# Mapas integrados à Semantic MediaWiki
+wfLoadExtension( 'Maps' );
+$egMapsDefaultService = 'leaflet';
+$egMapsMapWidth = 500;
+
 #Suprime aviso do EmbedVideo de funções deprecadas do PHP
 $wgDeprecationReleaseLimit = '1.0';
 
