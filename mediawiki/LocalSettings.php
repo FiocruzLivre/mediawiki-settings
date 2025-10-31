@@ -439,6 +439,8 @@ START_END_MARKER;
 $wgShowDebug = false;
 $wgDevelopmentWarnings = false;
 $wgShowExceptionDetails = false;
+$wgShowDBErrorBacktrace = false;
+$wgShowSQLErrors = false;
 
 #Definir a forma de contagem de verbetes
 $wgArticleCountMethod = 'any';
