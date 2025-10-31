@@ -253,13 +253,12 @@ wfLoadSkin( 'MinervaNeue' );
 #$wgMFDefaultSkinClass = 'SkinMinerva';
 
 // Definir layout Chameleon com navegação fixa para todo o site
-$egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/fixedhead.xml';
-
+$egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/clean.xml';
 
 
 // Definir as esquema de estilos via variáveis do Chameleon
 $egChameleonExternalStyleVariables = [
-    '$body-bg' => '#f4f6f9',
+    '$body-bg' => '#efefef',
 	'$cmln-navbar-bg-color' => 'dark',
 	'$cmln-navbar-toggler-color' => 'light',
 	'$cmln-search-bar-btn-color' => 'dark',
