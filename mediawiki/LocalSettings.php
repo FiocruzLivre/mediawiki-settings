@@ -256,6 +256,7 @@ $wgBootstrapComponentsEnableCarouselGalleryMode = true;
 $egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/fixedhead.xml';
 
 
+
 // Definir as esquema de estilos via variáveis do Chameleon
 $egChameleonExternalStyleVariables = [
     '$body-bg' => '#f4f6f9',
@@ -388,6 +389,28 @@ $wgFileExtensions = array_merge(
 );
 $wgSVGConverter = 'ImageMagick';
 $wgAllowTitlesInSVG = true;
+
+// MediaWiki language extension bundle (MLEB) : extensões para wiki multi idioma
+wfLoadExtension('Babel');
+
+wfLoadExtension('Cldr');
+
+wfLoadExtension('CleanChanges');
+$wgCCTrailerFilter = true;
+$wgCCUserFilter = false;
+$wgDefaultUserOptions['usenewrc'] = 1;
+
+wfLoadExtension( 'Translate' );
+$wgGroupPermissions['user']['translate'] = true;
+$wgGroupPermissions['user']['translate-messagereview'] = true;
+$wgGroupPermissions['user']['translate-groupreview'] = true;
+$wgGroupPermissions['user']['translate-import'] = true;
+$wgGroupPermissions['sysop']['pagetranslation'] = true;
+$wgGroupPermissions['sysop']['translate-manage'] = true;
+$wgTranslateDocumentationLanguageCode = 'qqq';
+$wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content. Used for documenting messages
+
+wfLoadExtension('UniversalLanguageSelector');
 
 #Suprime aviso do EmbedVideo de funções deprecadas do PHP
 $wgDeprecationReleaseLimit = '1.0';
