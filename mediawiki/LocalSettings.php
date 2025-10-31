@@ -381,14 +381,19 @@ $wgPdfEmbed['height'] = 1090;
 $wgGroupPermissions['*']['embed_pdf'] = true;
 
 
-# For SVG image support
+# Suporte a arquivos pdf, svg, mp3, ogg
 $wgFileExtensions = array_merge(
     $wgFileExtensions, [
-        'pdf', 'svg'
+        'pdf', 'svg', 'mp3', 'ogg'
     ]
 );
 $wgSVGConverter = 'ImageMagick';
 $wgAllowTitlesInSVG = true;
+
+# Exibir player de áudio
+wfLoadExtension( 'TimedMediaHandler' );
+$wgMediaViewerEnableByDefault = true;
+$wgFFmpegLocation = '/usr/bin/ffmpeg'; // Most common ffmpeg path on Linux
 
 // MediaWiki language extension bundle (MLEB) : extensões para wiki multi idioma
 wfLoadExtension('Babel');
