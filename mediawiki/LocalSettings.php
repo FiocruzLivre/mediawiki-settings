@@ -416,6 +416,9 @@ $wgExtraLanguageNames['qqq'] = 'Message documentation'; # No linguistic content.
 
 wfLoadExtension('UniversalLanguageSelector');
 
+# Exibir lista de quem editou a página
+wfLoadExtension( 'PageAuthors' );
+
 # Mapas integrados à Semantic MediaWiki
 wfLoadExtension( 'Maps' );
 $egMapsDefaultService = 'leaflet';
