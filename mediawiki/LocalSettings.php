@@ -217,6 +217,7 @@ wfLoadExtension( 'Disambiguator' );
 wfLoadExtension( 'VeForAll' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'PageForms' );
+#$wgPageFormsFormCacheType = CACHE_ANYTHING; // Remove caching de formulários para desenvolvimento
 
 #Easy Timeline
 wfLoadExtension( 'Timeline' );
@@ -454,6 +455,15 @@ $wgArticleCountMethod = 'any';
 
 #Add a call to enableSemantics() to the end of the "LocalSettings.php" file. 
 enableSemantics( 'wikifavelas.com.br' );
+
+#Ativar o Memcached
+$wgMainCacheType = CACHE_MEMCACHED;
+$wgParserCacheType = CACHE_MEMCACHED; // opcional
+$wgMessageCacheType = CACHE_MEMCACHED; // opcional
+$wgMemCachedServers = [ '127.0.0.1:11211' ];
+
+#$wgSessionsInObjectCache = true; // opcional | A documentação fala que saiu na versão 1.33 (acredito que seja do Mediawiki)
+$wgSessionCacheType = CACHE_MEMCACHED; // opcional
 
 # Colocar em modo manutenção (somente leitura)
 // $wgReadOnly = 'Estamos realizando manutenção no sistema. Você poderá voltar a editar';
