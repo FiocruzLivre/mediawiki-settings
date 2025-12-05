@@ -98,6 +98,7 @@ $wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 $wgPageFormsSimpleUpload = true;
 
+
 # InstantCommons allows wiki to use images from https://commons.wikimedia.org
 $wgUseInstantCommons = true;
 
@@ -215,6 +216,24 @@ wfLoadExtension( 'WikiSEO' );
 wfLoadExtension( 'ArticleRatings' );
 wfLoadExtension( 'Disambiguator' );
 wfLoadExtension( 'VeForAll' );
+
+// Para exibir as opções de inserção de Fórmula, Imagens e Citar em campos de de texto de formulário que usam o VisualEditor
+$wgHooks['VEForAllToolbarConfigNormal'][] = function( &$defaultConfig ) {
+        $defaultConfig[4]['include'][] = 'math';
+        $defaultConfig[4]['include'][] = 'media';
+	    $defaultConfig[4]['include'][] = 'transclusion';
+        $defaultConfig[] = [ 'name' => 'reference' ];
+};
+
+$wgHooks['VEForAllToolbarConfigWide'][] = function( &$defaultConfig ) {
+        $defaultConfig[4]['include'][] = 'math';
+        $defaultConfig[4]['include'][] = 'media';
+	    $defaultConfig[4]['include'][] = 'transclusion';
+        $defaultConfig[] = [ 'name' => 'reference' ];
+};
+
+
+
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'PageForms' );
 #$wgPageFormsFormCacheType = CACHE_ANYTHING; // Remove caching de formulários para desenvolvimento
