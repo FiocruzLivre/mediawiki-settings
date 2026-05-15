@@ -14,7 +14,6 @@
         "mediawiki/bootstrap": "~5.0",
         "mediawiki/chameleon-skin": "~5.0",
         "mediawiki/bootstrap-components": "~5.0",
-        "starcitizenwiki/embedvideo": "^3.4",
         "wolfgangfahl/pdfembed": "3.0.1",
         "mediawiki/disambiguator": "^1.43",
         "mediawiki/hit-counters": "^0.3.4",
