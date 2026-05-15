@@ -47,7 +47,9 @@
         "mediawiki/translate":"2025.03",
         "mediawiki/timed-media-handler":"^0.6.0",
         "mediawiki/maps": "~10.1",
-        "mediawiki/page-authors":"^1.4"
+        "mediawiki/page-authors":"^1.4",
+        "wikimedia/equivset": "^1.7.0",
+        "james-heinrich/getid3": "~1.9.24"
 
     },
     "repositories": [
