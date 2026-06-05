@@ -7,10 +7,7 @@
     },
     "extra": {
         "merge-plugin": {
-            "include": [
-                "extensions/*/composer.json",
-                "skins/*/composer.json"
-            ]
+            "include": []
         }
     },
     "require": {
@@ -43,7 +40,10 @@
         "mediawiki/mobile-frontend": "^2.4.1",
         "mediawiki/cookie-warning": "^0.3",
         "mediawiki/semantic-media-wiki": "^5.0.0",
-        "mediawiki/semantic-result-formats": "^5.0.0"
+        "mediawiki/semantic-result-formats": "^5.0.0",
+        "mediawiki/maps": "~12.1",
+        "mediawiki/no-title": "^1.43",
+        "wikimedia/equivset": "^1.7"
     },
     "repositories": [
         {
@@ -293,6 +293,19 @@
                 "source": {
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-CookieWarning",
+                    "reference": "REL1_43"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/no-title",
+                "type": "mediawiki-extension",
+                "version": "1.43",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-NoTitle",
                     "reference": "REL1_43"
                 }
             }
