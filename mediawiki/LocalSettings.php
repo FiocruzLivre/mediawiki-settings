@@ -140,8 +140,6 @@ $wgGroupPermissions['*']['edit'] = false;
 
 # Enabled skins.
 wfLoadSkin( 'Vector' );
-wfLoadSkin( 'chameleon' );
-$wgDefaultSkin = "chameleon";
 
 # End of automatically generated settings.
 # Add more configuration options below.
@@ -255,6 +253,10 @@ $wgBootstrapComponentsEnableCarouselGalleryMode = true;
 #wfLoadSkin( 'MinervaNeue' );
 #$wgMFDefaultSkinClass = 'SkinMinerva';
 
+// Carregar e ativar a Skin Chameleon sempre após o Bootstrap
+wfLoadSkin( 'chameleon' );
+$wgDefaultSkin = "chameleon";
+
 // Definir layout Chameleon com navegação fixa para todo o site
 $egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/fixedhead.xml';
 
@@ -291,6 +293,9 @@ $egChameleonEnableExternalLinkIcons = true;
 
 # Define the URL path of the shortcut icon.
 $wgFavicon = '/themes/images/favicon.ico';
+
+# Oculta títulos em páginas com __NOTITLE__
+wfLoadExtension( 'NoTitle' );
 
 # DisplayTitle
 $wgAllowDisplayTitle = true;
@@ -391,6 +396,11 @@ $wgFileExtensions = array_merge(
 );
 $wgSVGConverter = 'ImageMagick';
 $wgAllowTitlesInSVG = true;
+
+# Mapas integrados à Semantic MediaWiki
+wfLoadExtension( 'Maps' );
+$egMapsDefaultService = 'leaflet';
+$egMapsMapWidth = 500;
 
 #Suprime aviso do EmbedVideo de funções deprecadas do PHP
 $wgDeprecationReleaseLimit = '1.0';
