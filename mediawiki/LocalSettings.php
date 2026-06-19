@@ -312,6 +312,9 @@ $egChameleonEnableExternalLinkIcons = true;
 # Define the URL path of the shortcut icon.
 $wgFavicon = '/themes/images/favicon.ico';
 
+# Oculta títulos em páginas com __NOTITLE__
+wfLoadExtension( 'NoTitle' );
+
 # DisplayTitle
 $wgAllowDisplayTitle = true;
 $wgRestrictDisplayTitle = false;

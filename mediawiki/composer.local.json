@@ -48,6 +48,7 @@
         "mediawiki/timed-media-handler":"^0.6.0",
         "mediawiki/maps": "~12.1",
         "mediawiki/page-authors":"^1.4",
+        "mediawiki/no-title": "^1.43",
         "wikimedia/equivset": "^1.7.0",
         "james-heinrich/getid3": "~1.9.24"
 
@@ -326,6 +327,19 @@
                 "source": {
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-TimedMediaHandler",
+                    "reference": "REL1_43"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/no-title",
+                "type": "mediawiki-extension",
+                "version": "1.43",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-NoTitle",
                     "reference": "REL1_43"
                 }
             }
