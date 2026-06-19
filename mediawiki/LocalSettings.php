@@ -48,7 +48,6 @@ $wgResourceBasePath = $wgScriptPath;
 $wgLogos = [ '1x' => "$wgResourceBasePath/themes/images/logo_wikifavelas2024.svg" ];
 
 
-
 ## UPO means: this is also a user preference option
 
 $wgEnableEmail = true;
@@ -100,7 +99,6 @@ $wgUseCopyrightUpload = true;
 $wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 $wgPageFormsSimpleUpload = true;
-
 
 # InstantCommons allows wiki to use images from https://commons.wikimedia.org
 $wgUseInstantCommons = true;
@@ -239,7 +237,7 @@ $wgHooks['VEForAllToolbarConfigWide'][] = function( &$defaultConfig ) {
 
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'PageForms' );
-#$wgPageFormsFormCacheType = CACHE_ANYTHING; // Remove caching de formulários para desenvolvimento
+$wgPageFormsFormCacheType = CACHE_ANYTHING; // Remove caching de formulários para desenvolvimento
 
 #Easy Timeline
 wfLoadExtension( 'Timeline' );
