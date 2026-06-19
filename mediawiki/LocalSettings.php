@@ -199,7 +199,7 @@ wfLoadExtension( 'FontAwesome' );
 wfLoadExtension( 'GeoData' );
 
 # Exibir vídeos
-wfLoadExtension( 'EmbedVideo' );
+wfLoadExtension( 'Embedvideo' );
 $wgEmbedVideoAddFileExtensions = true;
 $wgEmbedVideoEnableVideoHandler = true;
 $wgEmbedVideoEnableAudioHandler = true;
