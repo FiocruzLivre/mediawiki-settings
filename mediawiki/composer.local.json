@@ -45,7 +45,6 @@
         "mediawiki/cldr":"^2025.03",
         "mediawiki/babel":"^2025.03",
         "mediawiki/translate":"2025.03",
-        "mediawiki/timed-media-handler":"^0.6.0",
         "mediawiki/maps": "~12.1",
         "mediawiki/page-authors":"^1.4",
         "mediawiki/no-title": "^1.43",
@@ -315,19 +314,6 @@
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-CleanChanges",
                     "reference": "2025.03"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "mediawiki/timed-media-handler",
-                "type": "mediawiki-extension",
-                "version": "0.6.0",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-TimedMediaHandler",
-                    "reference": "REL1_43"
                 }
             }
         },

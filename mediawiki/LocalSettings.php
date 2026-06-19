@@ -398,11 +398,6 @@ $wgFileExtensions = array_merge(
 $wgSVGConverter = 'ImageMagick';
 $wgAllowTitlesInSVG = true;
 
-# Exibir player de áudio
-wfLoadExtension( 'TimedMediaHandler' );
-$wgMediaViewerEnableByDefault = true;
-$wgFFmpegLocation = '/usr/bin/ffmpeg'; // Most common ffmpeg path on Linux
-
 // MediaWiki language extension bundle (MLEB) : extensões para wiki multi idioma
 wfLoadExtension('Babel');
 
