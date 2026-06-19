@@ -87,6 +87,7 @@ $wgMemCachedServers = [ '127.0.0.1:11211' ];
 
 #$wgSessionsInObjectCache = true; // opcional | A documentação fala que saiu na versão 1.33 (acredito que seja do Mediawiki)
 $wgSessionCacheType = CACHE_MEMCACHED; // opcional
+$wgCacheEpoch = '20260615000000';
 
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
