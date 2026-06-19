@@ -49,9 +49,7 @@
         "mediawiki/maps": "~12.1",
         "mediawiki/page-authors":"^1.4",
         "mediawiki/no-title": "^1.43",
-        "wikimedia/equivset": "^1.7.0",
-        "james-heinrich/getid3": "~1.9.24"
-
+        "wikimedia/equivset": "^1.7"
     },
     "repositories": [
         {
