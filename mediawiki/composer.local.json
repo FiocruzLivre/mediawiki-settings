@@ -36,6 +36,7 @@
         "mediawiki/head-script": "^1.1",
         "mediawiki/page-forms": "^6",
         "mediawiki/labeled-section-transclusion": "^1.43",
+        "mediawiki/ve-for-all": "^0.6",
         "mediawiki/mobile-frontend": "^2.4.1",
         "mediawiki/cookie-warning": "^0.3",
         "mediawiki/semantic-media-wiki": "^5.0.0",
@@ -274,6 +275,19 @@
                 "source": {
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-LabeledSectionTransclusion",
+                    "reference": "REL1_43"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/ve-for-all",
+                "type": "mediawiki-extension",
+                "version": "0.6",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-VEForAll",
                     "reference": "REL1_43"
                 }
             }

@@ -216,6 +216,7 @@ wfLoadExtension( 'WikiCategoryTagCloud' );
 wfLoadExtension( 'WikiSEO' );
 wfLoadExtension( 'ArticleRatings' );
 wfLoadExtension( 'Disambiguator' );
+wfLoadExtension( 'VeForAll' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'PageForms' );
 $wgPageFormsFormCacheType = CACHE_ANYTHING; // Remove caching de formulários para desenvolvimento
