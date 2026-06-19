@@ -30,6 +30,7 @@ $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
 $wgServer = getenv('WG_SERVER');
+$wgCanonicalServer = getenv('WG_SERVER');
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
