@@ -141,8 +141,6 @@ $wgGroupPermissions['*']['edit'] = false;
 
 # Enabled skins.
 wfLoadSkin( 'Vector' );
-wfLoadSkin( 'chameleon' );
-$wgDefaultSkin = "chameleon";
 
 # End of automatically generated settings.
 # Add more configuration options below.
@@ -274,6 +272,10 @@ $wgBootstrapComponentsEnableCarouselGalleryMode = true;
 wfLoadExtension( 'MobileFrontend' );
 wfLoadSkin( 'MinervaNeue' );
 #$wgMFDefaultSkinClass = 'SkinMinerva';
+
+// Carregar e ativar a Skin Chameleon sempre após o Bootstrap
+wfLoadSkin( 'chameleon' );
+$wgDefaultSkin = "chameleon";
 
 // Definir layout Chameleon com navegação fixa para todo o site
 $egChameleonLayoutFile= '/var/www/mediawiki/skins/chameleon/layouts/clean.xml';
