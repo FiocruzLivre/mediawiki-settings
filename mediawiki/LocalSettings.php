@@ -220,6 +220,7 @@ wfLoadExtension( 'VeForAll' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'PageForms' );
 $wgPageFormsFormCacheType = CACHE_ANYTHING; // Remove caching de formulários para desenvolvimento
+$wgPageFormsMaxLocalAutocompleteValues = 300; // Define limite para listas de combobox em formulário. Tamanho 300 necessário para lista de países
 
 #Easy Timeline
 wfLoadExtension( 'Timeline' );
