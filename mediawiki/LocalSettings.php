@@ -58,6 +58,7 @@ $wgEmergencyContact = "wikifavelas@fiocruz.br";
 $wgPasswordSender = "wikifavelas@fiocruz.br";
 
 $wgEnotifUserTalk = true; # UPO
+# Enviar email de paginas vigiadas
 $wgEnotifWatchlist = true; # UPO
 $wgEmailAuthentication = true;
 
@@ -345,10 +346,6 @@ $wgSMTP = array(
 $wgEmailConfirmToEdit = true;
 //$wgEmailAuthentication = true; //Defina como true para ativar a autenticação por correio eletrónico (confirmação) para esta wiki
 //$wgAllowRequiringEmailForResets = true; //Temporary feature flag that controls whether users will see a checkbox allowing them to require providing email during password resets.
-
-
-# Enviar email de paginas vigiadas
-$wgEnotifWatchlist = true;
 
 # The permissions
 $wgGroupPermissions['*']['edit'] = true;
