@@ -59,7 +59,7 @@ $wgPasswordSender = "wikifavelas@fiocruz.br";
 
 $wgEnotifUserTalk = true; # UPO
 # Enviar email de paginas vigiadas
-$wgEnotifWatchlist = true; # UPO
+$wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
