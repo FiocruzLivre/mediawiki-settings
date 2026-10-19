@@ -84,7 +84,7 @@ $wgSharedTables[] = "actor";
 $wgMainCacheType = CACHE_MEMCACHED;
 $wgParserCacheType = CACHE_MEMCACHED; // opcional
 $wgMessageCacheType = CACHE_MEMCACHED; // opcional
-$wgMemCachedServers = [ '127.0.0.1:11211' ];
+$wgMemCachedServers = [ getenv('WG_MEMCACHED_SERVER') ];
 
 #$wgSessionsInObjectCache = true; // opcional | A documentação fala que saiu na versão 1.33 (acredito que seja do Mediawiki)
 $wgSessionCacheType = CACHE_MEMCACHED; // opcional
