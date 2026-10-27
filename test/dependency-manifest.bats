@@ -2,13 +2,13 @@
 
 setup() {
   manifest="$BATS_TEST_DIRNAME/../mediawiki/composer.local.json"
-  canonical="$BATS_TEST_DIRNAME/../mediawiki/composer.json"
+  canonical="$BATS_TEST_DIRNAME/../dependencies/composer.json"
 }
 
 @test "Composer and MediaWiki reference the same manifest" {
   [ -f "$canonical" ]
   [ -L "$manifest" ]
-  [ "$(readlink "$manifest")" = "composer.json" ]
+  [ "$(readlink "$manifest")" = "../dependencies/composer.json" ]
   run cmp "$manifest" "$canonical"
   [ "$status" -eq 0 ]
 }
@@ -40,4 +40,8 @@ setup() {
     .config["allow-plugins"]["composer/installers"] == true
   ' "$canonical"
   [ "$status" -eq 0 ]
+}
+
+@test "Application settings never shadow MediaWiki core composer.json" {
+  [ ! -e "$BATS_TEST_DIRNAME/../mediawiki/composer.json" ]
 }

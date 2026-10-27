@@ -28,6 +28,6 @@ jobs:
         run: bats test/dependency-manifest.bats
       - name: Validate native Composer manifest
         run: |
-          docker run --rm -v "$PWD/mediawiki:/app:ro" -w /app \
+          docker run --rm -v "$PWD/dependencies:/app:ro" -w /app \
             --entrypoint composer composer:2.10.3 \
             validate --no-check-all --no-check-publish

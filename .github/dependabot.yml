@@ -1,11 +1,11 @@
 version: 2
 
 # GitHub's configuration on the default branch covers all three targets.
-# Each branch contains the same canonical mediawiki/composer.json, linked as
+# Each branch contains the same canonical dependencies/composer.json, linked as
 # composer.local.json for MediaWiki's composer-merge-plugin.
 updates:
   - package-ecosystem: composer
-    directory: /mediawiki
+    directory: /dependencies
     schedule:
       interval: weekly
       day: monday
@@ -17,7 +17,7 @@ updates:
         update-types: [minor, patch]
 
   - package-ecosystem: composer
-    directory: /mediawiki
+    directory: /dependencies
     target-branch: saude
     schedule:
       interval: weekly
@@ -30,7 +30,7 @@ updates:
         update-types: [minor, patch]
 
   - package-ecosystem: composer
-    directory: /mediawiki
+    directory: /dependencies
     target-branch: wikifavelas
     schedule:
       interval: weekly
