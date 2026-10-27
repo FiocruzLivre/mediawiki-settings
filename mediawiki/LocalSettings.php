@@ -380,7 +380,9 @@ wfLoadExtension( 'Kartographer' );
 $wgKartographerMapServer = getenv( 'WG_KARTOGRAPHER_MAP_SERVER' ) ?: 'https://marker.mapamovsaude.net.br';
 $wgKartographerStyles = ['osm'];
 $wgKartographerDfltStyle = 'osm';
-$wgKartographerSimpleStyleMarkers = true;
+# Use the native blue Leaflet pin for unstyled markers. The SimpleStyle
+# marker API defaults to a gray Maki pin and replaces Leaflet's classic icon.
+$wgKartographerSimpleStyleMarkers = false;
 
 # CSS
 wfLoadExtension( 'Css' );

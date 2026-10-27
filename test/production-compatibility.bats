@@ -24,7 +24,7 @@ setup() {
   [ "$status" -eq 0 ]
   run grep -F "\$wgKartographerDfltStyle = 'osm';" "$settings"
   [ "$status" -eq 0 ]
-  run grep -F "\$wgKartographerSimpleStyleMarkers = true;" "$settings"
+  run grep -F "\$wgKartographerSimpleStyleMarkers = false;" "$settings"
   [ "$status" -eq 0 ]
   run grep -E "^[[:space:]]*\\\$wgKartographerMapServer = 'https://tile[.]openstreetmap[.]org'" "$settings"
   [ "$status" -ne 0 ]
