@@ -145,11 +145,11 @@
             "package": {
                 "name": "thewatcher/interactive-timeline",
                 "type": "mediawiki-extension",
-                "version": "1.9",
+                "version": "1.9.0",
                 "source": {
                     "type": "git",
-                    "url": "https://github.com/TheWatcher/InteractiveTimeline",
-                    "reference": "master"
+                    "url": "https://github.com/FiocruzLivre/mediawiki-extension-interactive-timeline.git",
+                    "reference": "ef5e003a8bfcfe31f68fa92a55f43ff1699cdb28"
                 }
             }
         },
