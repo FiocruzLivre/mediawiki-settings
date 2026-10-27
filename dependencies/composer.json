@@ -20,7 +20,7 @@
         "starcitizenwiki/embedvideo": "^4.2",
         "wolfgangfahl/pdfembed": "3.0.1",
         "mediawiki/disambiguator": "^1.4",
-        "mediawiki/hit-counters": "^0.3.4",
+        "mediawiki/hit-counters": "^1.46",
         "mediawiki/popups": "^1.46",
         "octfx/wiki-seo": "^2.7",
         "sigbertklinke/iframe": "^0.11.0",
@@ -295,6 +295,19 @@
                 },
                 "require": {
                     "composer/installers": ">=1.0.1"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/hit-counters",
+                "version": "1.46.0",
+                "type": "mediawiki-extension",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-HitCounters.git",
+                    "reference": "5df9a72d36d2c1c822f73050cabf544ec1958fd6"
                 }
             }
         }

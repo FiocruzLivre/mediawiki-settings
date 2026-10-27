@@ -74,6 +74,14 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
+@test "HitCounters uses the MediaWiki 1.46 compatible updater source" {
+  run jq -e '
+    .require["mediawiki/hit-counters"] == "^1.46" and
+    ([.repositories[]? | select(.type == "package" and .package.name == "mediawiki/hit-counters")][0].package.source.reference == "5df9a72d36d2c1c822f73050cabf544ec1958fd6")
+  ' "$manifest"
+  [ "$status" -eq 0 ]
+}
+
 @test "Bootswatch custom theme styles match Bootstrap 5" {
   run grep -F 'Journal 5.3.8' "$project/mediawiki/themes/journal/_variables.scss"
   [ "$status" -eq 0 ]
