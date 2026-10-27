@@ -24,8 +24,8 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y bats jq
-      - name: Validate manifest aliases and version constraints
-        run: bats test/dependency-manifest.bats
+      - name: Validate all manifest and integration tests
+        run: bats --recursive test
       - name: Validate native Composer manifest
         run: |
           docker run --rm -v "$PWD/dependencies:/app:ro" -w /app \
