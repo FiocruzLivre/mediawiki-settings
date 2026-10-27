@@ -24,5 +24,10 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y bats jq
-      - name: Check Composer manifest declarations
+      - name: Validate manifest aliases and version constraints
         run: bats test/dependency-manifest.bats
+      - name: Validate native Composer manifest
+        run: |
+          docker run --rm -v "$PWD/mediawiki:/app:ro" -w /app \
+            --entrypoint composer composer:2.10.3 \
+            validate --no-check-all --no-check-publish
