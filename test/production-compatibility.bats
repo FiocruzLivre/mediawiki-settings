@@ -69,6 +69,11 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
+@test "Page Forms uses maintained MediaWiki 1.46 compatible release" {
+  run jq -e '.require["mediawiki/page-forms"] == "^6.0.11"' "$manifest"
+  [ "$status" -eq 0 ]
+}
+
 @test "Bootswatch custom theme styles match Bootstrap 5" {
   run grep -F 'Journal 5.3.8' "$project/mediawiki/themes/journal/_variables.scss"
   [ "$status" -eq 0 ]

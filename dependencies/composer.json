@@ -37,7 +37,7 @@
         "mediawiki/wiki-category-tag-cloud": "^1.4",
         "mediawiki/geo-data": "^1.46",
         "mediawiki/head-script": "^1.1",
-        "mediawiki/page-forms": "^5.7",
+        "mediawiki/page-forms": "^6.0.11",
         "mediawiki/labeled-section-transclusion": "^1.46",
         "mediawiki/no-title": "^1.46",
         "mediawiki/css": "^1.46",
