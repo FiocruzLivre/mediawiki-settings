@@ -20,7 +20,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "Mapa movimentos";
+$wgSitename = "Mapa Mov Saúde";
 $wgMetaNamespace = "MapaMovSaude";
 
 ## The URL base path to the directory containing the wiki;
@@ -73,7 +73,9 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ACCEL;
+$wgUseCdn = true;
+$wgCdnMaxAge = 120;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -376,7 +378,6 @@ $wgIframe['server']['mss'] = [ 'scheme' => 'https',  'domain' => 'movimentossoci
 # Kartographer
 wfLoadExtension( 'Kartographer' );
 $wgKartographerMapServer = 'https://tile.openstreetmap.org';
-$wgKartographerMapServer = 'https://tileserver.map.as';
 $wgKartographerStyles = ['osm'];
 $wgKartographerDfltStyle = '';
 $wgKartographerSimpleStyleMarkers = false;
@@ -400,8 +401,6 @@ $wgDLPAllowUnlimitedCategories = true; // Allow unlimited categories
 // cache altogether (inefficient, but results will never be outdated)
 $wgDLPMaxCacheTime = 60*60*24;          // How long to cache pages in seconds
 
-#Suprime aviso do EmbedVideo de funções deprecadas do PHP
-$wgDeprecationReleaseLimit = '1.0';
 
 # Configurar references
 $wgCiteBookReferencing = true;
@@ -433,10 +432,15 @@ wfLoadExtension( 'CreditsSource' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'AbuseFilter' );
 
-wfLoadExtension( 'Matomo' );
-$wgMatomoURL = 'matomo.mapamovsaude.net.br';
-$wgMatomoIDSite = '1';
-$wgMatomoTrackUsernames = true;
+// MatomoAnalytics supports MediaWiki 1.46 and preserves the Matomo site ID.
+// Do not expose API tokens in version-controlled configuration.
+// Use WG_MATOMO_DISABLE_JS=1 in isolated staging to avoid recording test visits.
+wfLoadExtension( 'MatomoAnalytics' );
+$wgMatomoAnalyticsServerURL = getenv( 'WG_MATOMO_URL' ) ?: 'https://matomo.mapamovsaude.net.br/';
+$wgMatomoAnalyticsSiteID = 1;
+$wgMatomoAnalyticsUseDB = false;
+$wgMatomoAnalyticsDisableJS = filter_var( getenv( 'WG_MATOMO_DISABLE_JS' ) ?: '0', FILTER_VALIDATE_BOOLEAN );
+$wgMatomoAnalyticsTokenAuth = getenv( 'WG_MATOMO_API_TOKEN' ) ?: '';
 
 # Para ativar o Modo Debug use true
 $wgShowDebug = false;
