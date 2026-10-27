@@ -1,9 +1,47 @@
 version: 2
 
-# Dependabot updates workflow actions on all three maintained branches.
-# Composer extension requirements live in composer.local.json, which the
-# native Composer updater does not scan as a standalone manifest.
+# GitHub's configuration on the default branch covers all three targets.
+# Each branch contains the same canonical mediawiki/composer.json, linked as
+# composer.local.json for MediaWiki's composer-merge-plugin.
 updates:
+  - package-ecosystem: composer
+    directory: /mediawiki
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
+    groups:
+      compatible-updates:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
+  - package-ecosystem: composer
+    directory: /mediawiki
+    target-branch: saude
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
+    groups:
+      compatible-updates:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
+  - package-ecosystem: composer
+    directory: /mediawiki
+    target-branch: wikifavelas
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
+    groups:
+      compatible-updates:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
