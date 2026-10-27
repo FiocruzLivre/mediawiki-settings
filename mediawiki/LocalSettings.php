@@ -196,7 +196,6 @@ wfLoadExtension( 'Iframe' );
 wfLoadExtension( 'FontAwesome' );
 wfLoadExtension( 'GeoData' );
 wfLoadExtension( 'EmbedVideo' );
-wfLoadExtension( 'InteractiveTimeline' );
 wfLoadExtension( 'JsonConfig' );
 wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension( 'PDFembed' );

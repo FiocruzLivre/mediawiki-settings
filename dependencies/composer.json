@@ -28,7 +28,6 @@
         "wikimedia/article-ratings": "^2.6",
         "mediawiki/user-export": "^2.1",
         "mediawiki/intersection": "^1.43",
-        "thewatcher/interactive-timeline": "^1.9",
         "mediawiki/timeline": "^1.43",
         "mediawiki/kartographer": "^1.43",
         "mediawiki/json-config": "^1.1.1",
@@ -137,19 +136,6 @@
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-timeline",
                     "reference": "REL1_43"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "thewatcher/interactive-timeline",
-                "type": "mediawiki-extension",
-                "version": "1.9.0",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/FiocruzLivre/mediawiki-extension-interactive-timeline.git",
-                    "reference": "ef5e003a8bfcfe31f68fa92a55f43ff1699cdb28"
                 }
             }
         },
