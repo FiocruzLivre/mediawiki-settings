@@ -52,7 +52,8 @@ setup() {
     (.require | has("mediawiki/cite") | not) and
     (.require | has("mediawiki/cite-this-page") | not) and
     (.require | has("mediawiki/code-editor") | not) and
-    (.require | has("mediawiki/vector-skin") | not)
+    (.require | has("mediawiki/vector-skin") | not) and
+    (.require | has("mediawiki/interwiki") | not)
   ' "$manifest"
   [ "$status" -eq 0 ]
 }

@@ -41,8 +41,7 @@
         "mediawiki/labeled-section-transclusion": "^1.46",
         "mediawiki/no-title": "^1.46",
         "mediawiki/css": "^1.46",
-        "miraheze/matomo-analytics": "1.5.0",
-        "mediawiki/interwiki": "^1.46"
+        "miraheze/matomo-analytics": "1.5.0"
     },
     "repositories": [
         {
@@ -296,19 +295,6 @@
                 },
                 "require": {
                     "composer/installers": ">=1.0.1"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "mediawiki/interwiki",
-                "version": "1.46.0",
-                "type": "mediawiki-extension",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Interwiki.git",
-                    "reference": "8e9fcd8591fde8c87d4f93b7af1210159db87c64"
                 }
             }
         }

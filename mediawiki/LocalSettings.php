@@ -160,7 +160,7 @@ wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
-wfLoadExtension( 'Interwiki' );
+// Interwiki was incorporated into MediaWiki core in 1.44.
 wfLoadExtension( 'MultimediaViewer' );
 wfLoadExtension( 'Nuke' );
 wfLoadExtension( 'OATHAuth' );
