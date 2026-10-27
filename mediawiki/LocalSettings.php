@@ -189,7 +189,6 @@ wfLoadExtension( 'Disambiguator' );
 wfLoadExtension( 'HeadScript' );
 wfLoadExtension( 'HitCounters' );
 wfLoadExtension( 'Iframe' );
-wfLoadExtension( 'InteractiveTimeline' );
 wfLoadExtension( 'JsonConfig' );
 wfLoadExtension( 'PDFembed' );
 #wfLoadExtension( 'Renameuser' );
