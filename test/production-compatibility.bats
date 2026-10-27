@@ -82,6 +82,15 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
+@test "WikiSEO uses MediaWiki 1.46 compatible source rather than its incompatible release archive" {
+  run jq -e '
+    .require["octfx/wiki-seo"] == "^2.7" and
+    ([.repositories[]? |
+      select(.type == "package" and .package.name == "octfx/wiki-seo")][0].package.source.reference == "6d948bc9bed07a8a7bb1ee03e75473ea431c58ea")
+  ' "$manifest"
+  [ "$status" -eq 0 ]
+}
+
 @test "Bootswatch custom theme styles match Bootstrap 5" {
   run grep -F 'Journal 5.3.8' "$project/mediawiki/themes/journal/_variables.scss"
   [ "$status" -eq 0 ]
