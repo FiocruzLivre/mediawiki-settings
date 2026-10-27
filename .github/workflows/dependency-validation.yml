@@ -1,0 +1,28 @@
+name: Validate dependency manifests
+
+on:
+  push:
+    branches:
+      - main
+      - saude
+      - wikifavelas
+  pull_request:
+    branches:
+      - main
+      - saude
+      - wikifavelas
+
+permissions:
+  contents: read
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Bats and jq
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y bats jq
+      - name: Check Composer manifest declarations
+        run: bats test/dependency-manifest.bats

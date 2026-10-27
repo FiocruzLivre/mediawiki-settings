@@ -1,0 +1,31 @@
+version: 2
+
+# Dependabot updates workflow actions on all three maintained branches.
+# Composer extension requirements live in composer.local.json, which the
+# native Composer updater does not scan as a standalone manifest.
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: saude
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: wikifavelas
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
