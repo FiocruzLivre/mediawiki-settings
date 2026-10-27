@@ -1,0 +1,25 @@
+version: 2
+
+# Dependabot reads this configuration from the default branch.
+# Enable additional target branches only after each one contains a
+# native dependencies/composer.json and a reviewed, compatible lock policy.
+updates:
+  - package-ecosystem: composer
+    directory: /dependencies
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
+    groups:
+      compatible-updates:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 3
