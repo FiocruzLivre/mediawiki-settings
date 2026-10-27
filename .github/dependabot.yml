@@ -1,8 +1,8 @@
 version: 2
 
-# GitHub's configuration on the default branch covers all three targets.
-# Each branch contains the same canonical dependencies/composer.json, linked as
-# composer.local.json for MediaWiki's composer-merge-plugin.
+# Dependabot reads this configuration from the default branch.
+# Enable additional target branches only after each one contains a
+# native dependencies/composer.json and a reviewed, compatible lock policy.
 updates:
   - package-ecosystem: composer
     directory: /dependencies
@@ -16,52 +16,8 @@ updates:
         patterns: ["*"]
         update-types: [minor, patch]
 
-  - package-ecosystem: composer
-    directory: /dependencies
-    target-branch: saude
-    schedule:
-      interval: weekly
-      day: monday
-      timezone: America/Sao_Paulo
-    open-pull-requests-limit: 3
-    groups:
-      compatible-updates:
-        patterns: ["*"]
-        update-types: [minor, patch]
-
-  - package-ecosystem: composer
-    directory: /dependencies
-    target-branch: wikifavelas
-    schedule:
-      interval: weekly
-      day: monday
-      timezone: America/Sao_Paulo
-    open-pull-requests-limit: 3
-    groups:
-      compatible-updates:
-        patterns: ["*"]
-        update-types: [minor, patch]
-
   - package-ecosystem: github-actions
     directory: /
-    schedule:
-      interval: weekly
-      day: monday
-      timezone: America/Sao_Paulo
-    open-pull-requests-limit: 3
-
-  - package-ecosystem: github-actions
-    directory: /
-    target-branch: saude
-    schedule:
-      interval: weekly
-      day: monday
-      timezone: America/Sao_Paulo
-    open-pull-requests-limit: 3
-
-  - package-ecosystem: github-actions
-    directory: /
-    target-branch: wikifavelas
     schedule:
       interval: weekly
       day: monday
