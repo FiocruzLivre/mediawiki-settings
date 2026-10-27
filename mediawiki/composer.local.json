@@ -166,8 +166,8 @@
                 "version": "1.6.0",
                 "source": {
                     "type": "git",
-                    "url": "https://github.com/TheWatcher/InteractiveTimeline",
-                    "reference": "master"
+                    "url": "https://github.com/FiocruzLivre/mediawiki-extension-interactive-timeline.git",
+                    "reference": "d906af45ecf962325ec94090860c18a2d44a2f9b"
                 }
             }
         },
