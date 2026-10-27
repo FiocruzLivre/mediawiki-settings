@@ -17,10 +17,16 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
-@test "Maps preserve production OpenStreetMap endpoint without obsolete proxy" {
-  run grep -F "\$wgKartographerMapServer = 'https://tile.openstreetmap.org';" "$settings"
+@test "Kartographer uses a verified site gateway and a nonempty supported style" {
+  run grep -F "\$wgKartographerMapServer = getenv( 'WG_KARTOGRAPHER_MAP_SERVER' ) ?: 'https://marker.mapamovsaude.net.br';" "$settings"
   [ "$status" -eq 0 ]
-  run grep -E 'tileserver[.]map[.]as|marker[.]mapamovsaude[.]net[.]br' "$settings"
+  run grep -F "\$wgKartographerStyles = ['osm'];" "$settings"
+  [ "$status" -eq 0 ]
+  run grep -F "\$wgKartographerDfltStyle = 'osm';" "$settings"
+  [ "$status" -eq 0 ]
+  run grep -F "\$wgKartographerSimpleStyleMarkers = true;" "$settings"
+  [ "$status" -eq 0 ]
+  run grep -E "^[[:space:]]*\\\$wgKartographerMapServer = 'https://tile[.]openstreetmap[.]org'" "$settings"
   [ "$status" -ne 0 ]
 }
 

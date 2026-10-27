@@ -1,0 +1,18 @@
+{
+    "patches": {
+        "mediawiki/bootstrap-components": [
+            {
+                "description": "Avoid accessing uninitialized ParserOutput during Parsoid rendering (upstream issue #51)",
+                "url": "../src/dependencies/patches/bootstrap-components-parsoid-output.patch",
+                "sha256": "d755d359270ac4c23b52188eedf4567c9ecc8398c6c90abad9bdf7ea8050c4e7"
+            }
+        ],
+        "mediawiki/hit-counters": [
+            {
+                "description": "Align Composer PSR-4 namespace with extension classes",
+                "url": "../src/dependencies/patches/hitcounters-psr4.patch",
+                "sha256": "0fa37e60f80390049d2ffcbc98b39f63bd699e9ab61963ba6799217aa4760623"
+            }
+        ]
+    }
+}

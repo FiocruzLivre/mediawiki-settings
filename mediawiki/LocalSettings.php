@@ -377,10 +377,10 @@ $wgIframe['server']['mss'] = [ 'scheme' => 'https',  'domain' => 'movimentossoci
 
 # Kartographer
 wfLoadExtension( 'Kartographer' );
-$wgKartographerMapServer = 'https://tile.openstreetmap.org';
+$wgKartographerMapServer = getenv( 'WG_KARTOGRAPHER_MAP_SERVER' ) ?: 'https://marker.mapamovsaude.net.br';
 $wgKartographerStyles = ['osm'];
-$wgKartographerDfltStyle = '';
-$wgKartographerSimpleStyleMarkers = false;
+$wgKartographerDfltStyle = 'osm';
+$wgKartographerSimpleStyleMarkers = true;
 
 # CSS
 wfLoadExtension( 'Css' );

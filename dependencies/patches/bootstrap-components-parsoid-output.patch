@@ -1,0 +1,37 @@
+--- a/src/ParserOutputHelper.php
++++ b/src/ParserOutputHelper.php
+@@ -81,7 +81,7 @@
+ 	 * @deprecated use \MediaWiki\Extension\BootstrapComponents\BootstrapComponentsService::registerComponentAsActive
+ 	 */
+ 	public function addModules( $modulesToAdd ) {
+-		$parserOutput = $this->getParser()->getOutput();
++		$parserOutput = $this->getOutputIfInitialized();
+ 		if ( is_a( $parserOutput, ParserOutput::class ) ) {
+ 			// Q: when do we expect \Parser->getOutput() no to be a \ParserOutput? A:During tests.
+ 			$parserOutput->addModules( $modulesToAdd );
+@@ -129,13 +129,24 @@
+ 	}
+ 
+ 	/**
++	 * Parsoid can invoke extension tags with no initialized ParserOutput.
++	 * In that context there is no parser output to augment.
++	 */
++	private function getOutputIfInitialized(): ?ParserOutput {
++		$outputProperty = new \ReflectionProperty( Parser::class, 'mOutput' );
++		return $outputProperty->isInitialized( $this->parser )
++			? $this->parser->getOutput()
++			: null;
++	}
++
++	/**
+ 	 * Adds current page to the indicated tracking category, if not done already.
+ 	 *
+ 	 * @param String $trackingCategoryMessageName name of the message, containing the tracking category
+ 	 */
+ 	private function placeTrackingCategory( string $trackingCategoryMessageName ): void {
+ 		$categoryMessage = (new Message( $trackingCategoryMessageName ))->inContentLanguage();
+-		$parserOutput = $this->parser->getOutput();
++		$parserOutput = $this->getOutputIfInitialized();
+ 		if ( !$categoryMessage->isDisabled() && is_a( $parserOutput, ParserOutput::class ) ) {
+ 			// Q: when do we expect Parser->getOutput() no to be a ParserOutput? A:During tests.
+ 			$cat = Title::makeTitleSafe( NS_CATEGORY, $categoryMessage->text() );

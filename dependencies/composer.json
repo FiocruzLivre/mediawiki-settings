@@ -2,7 +2,8 @@
     "config": {
         "allow-plugins": {
             "wikimedia/composer-merge-plugin": true,
-            "composer/installers": true
+            "composer/installers": true,
+            "cweagans/composer-patches": true
         }
     },
     "extra": {
@@ -41,7 +42,8 @@
         "mediawiki/labeled-section-transclusion": "^1.46",
         "mediawiki/no-title": "^1.46",
         "mediawiki/css": "^1.46",
-        "miraheze/matomo-analytics": "1.5.0"
+        "miraheze/matomo-analytics": "1.5.0",
+        "cweagans/composer-patches": "2.0.0"
     },
     "repositories": [
         {

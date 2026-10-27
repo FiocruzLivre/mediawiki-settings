@@ -1,0 +1,11 @@
+--- a/composer.json
++++ b/composer.json
+@@ -28,7 +28,7 @@
+ 	},
+ 	"autoload": {
+ 		"psr-4": {
+-			"HitCounter\\": "includes/"
++			"HitCounters\\": "includes/"
+ 		}
+ 	},
+ 	"require-dev": {
