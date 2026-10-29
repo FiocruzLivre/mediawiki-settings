@@ -1,0 +1,15 @@
+Documentação da [[Predefinição:Geolocalização do artigo]].
+<pre>
+{{Geolocalização do artigo
+|latitude=-3.68274
+|longitude=-40.3512
+|precisao=municipio
+|tipo_local=atuacao
+|exibir_no_mapa=sim
+}}
+</pre>
+Latitude: -90 a 90; longitude: -180 a 180. Casas decimais separadas por ponto.
+Precisao: municipio, aproximada, exata. Tipo local: sede, atuacao, evento, referencia.
+exibir_no_mapa: sim ou nao.
+Dados inválidos, incompletos ou não públicos não geram coordenada.
+O valor sim registra intenção de publicação da posição no GeoData; não significa aprovação editorial para o mapa inicial.

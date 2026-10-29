@@ -1,0 +1,7 @@
+<includeonly>{{#invoke:Geolocalizacao do artigo|registrar
+|latitude={{{latitude|}}}
+|longitude={{{longitude|}}}
+|precisao={{{precisao|}}}
+|tipo_local={{{tipo_local|}}}
+|exibir_no_mapa={{{exibir_no_mapa|}}}
+}}</includeonly><noinclude>[[Predefinição:Geolocalização do artigo/doc|Documentação]]</noinclude>

@@ -1,0 +1,33 @@
+<noinclude>
+Formulário opcional para criar e editar artigos, sem substituir VisualEditor.
+{{#forminput:form=Artigo com geolocalização|button text=Criar artigo}}
+</noinclude><includeonly>
+{{{info|create title=Criar artigo|edit title=Editar artigo e localização}}}
+= Localização geográfica (opcional) =
+Informe um ponto publicável, não um endereço privado. Use graus decimais com ponto. Apague as coordenadas para remover a posição.
+{{{for template|Geolocalização do artigo|label=Localização única|maximum instances=1}}}
+{| class="formtable"
+! Latitude
+| {{{field|latitude|input type=text|size=24|placeholder=-3.68274}}}
+|-
+! Longitude
+| {{{field|longitude|input type=text|size=24|placeholder=-40.3512}}}
+|-
+! Precisão
+| {{{field|precisao|input type=dropdown|values=municipio,aproximada,exata}}}
+|-
+! Tipo do local
+| {{{field|tipo_local|input type=dropdown|values=sede,atuacao,evento,referencia}}}
+|-
+! Publicar a localização?
+| {{{field|exibir_no_mapa|input type=dropdown|values=nao,sim|default=nao}}}
+|}
+'''Aviso:''' solicitar publicação não equivale a aprovação editorial para inclusão na página inicial.
+{{{end template}}}
+= Conteúdo livre do artigo =
+Preserve referências, categorias, predefinições e demais marcações.
+{{{standard input|free text|rows=25}}}
+{{{standard input|summary}}}
+{{{standard input|preview}}}
+{{{standard input|save}}}
+</includeonly>
