@@ -12,9 +12,9 @@
     },
     "require": {
         "mediawiki/bootstrap": "~5.0",
-        "mediawiki/chameleon-skin": "~5.0",
-        "mediawiki/bootstrap-components": "~5.0",
-        "starcitizenwiki/embedvideo": "dev-master",
+        "mediawiki/chameleon-skin": "^5.0.3",
+        "mediawiki/bootstrap-components": "^5.2.1",
+        "starcitizenwiki/embedvideo": "^4.2",
         "wolfgangfahl/pdfembed": "3.0.1",
         "mediawiki/disambiguator": "^1.43",
         "mediawiki/hit-counters": "^0.3.4",
@@ -46,19 +46,6 @@
         "wikimedia/equivset": "^1.7"
     },
     "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "starcitizenwiki/embedvideo",
-                "type": "mediawiki-extension",
-                "version": "dev-master",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo",
-                    "reference": "master"
-                }
-            }
-        },
         {
             "type": "vcs",
             "url": "https://github.com/WolfgangFahl/PDFEmbed"
@@ -159,11 +146,11 @@
             "package": {
                 "name": "thewatcher/interactive-timeline",
                 "type": "mediawiki-extension",
-                "version": "1.9",
+                "version": "1.9.0",
                 "source": {
                     "type": "git",
-                    "url": "https://github.com/TheWatcher/InteractiveTimeline",
-                    "reference": "REL1_32"
+                    "url": "https://github.com/FiocruzLivre/mediawiki-extension-interactive-timeline.git",
+                    "reference": "ef5e003a8bfcfe31f68fa92a55f43ff1699cdb28"
                 }
             }
         },
