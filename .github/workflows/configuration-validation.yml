@@ -1,0 +1,22 @@
+name: Validate WikiFavelas site configuration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: PHP 8.3 syntax check
+        run: |
+          docker run --rm -v "$PWD:/app:ro" -w /app --entrypoint php php:8.3-cli -l /app/mediawiki/LocalSettings.php
+      - name: Composer configuration JSON
+        run: python3 -m json.tool mediawiki/composer.local.json > /dev/null
