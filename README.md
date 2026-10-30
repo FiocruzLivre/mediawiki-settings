@@ -1,33 +1,24 @@
-# MediaWiki Settings
+# Dicionário de Favelas Marielle Franco — configuração MediaWiki
 
-Este repositório se destina a manter as configurações e extensões dos projetos Mapa dos [Movimentos Sociais em Saúde](https://mapamovsaude.net.br) e [Wikifavelas](https://wikifavelas.com.br/).
+This repository is the WikiFavelas **site-specific** configuration, dependency
+constraints and visual assets. It is not the generic MediaWiki base.
 
-## Instalação
+## Historical origin
+Main is a direct rename of `FiocruzLivre/mediawiki-settings:wikifavelas`
+at commit `54c33e978d73c6886b1ab792bd2ca637d34d3bf3`.
+The old repository is to be renamed only after the Mapa has a published
+independent home and the current open PRs have been preserved or transferred.
 
-1. Clone o projeto [mediawiki-development](https://github.com/FiocruzLivre/mediawiki-development.git): `git clone https://github.com/FiocruzLivre/mediawiki-development.git`
-2. Acesse a pasta do projeto: `cd mediawiki-development`
-3. Crie uma pasta chamada _volumes_: `mkdir volumes`
-4. Clone o projeto _mediawiki-settings_ dentro da pasta _volumes_ em uma pasta chamada _src_: `git clone https://github.com/FiocruzLivre/mediawiki-settings.git volumes/src` e faça o `checkout` para a branch relativa ao seu projeto.
-5. Crie o subdiretório _/mysql/dump_ dentro da pasta _volumes_: `mkdir -p volumes/mysql/dump`
-6. Faça um backup do banco do seu projeto e coloque na pasta `volumes/mysql/dump`
-7. É necessário que exista um arquivo `.env` na raíz do projeto mediawiki-development com as variáveis utilizadas no _LocalSettings.php_.
-8. Clone o projeto do [MediaWiki](https://www.mediawiki.org/) no subdiretório _volumes/mediawiki_: `git clone  --progress --single-branch --depth 1 --branch 1.43.0 --recurse-submodules -j 4 https://gerrit.wikimedia.org/r/mediawiki/core.git volumes/mediawiki` (Obs.: Lembre-se de substituir a branch pela versão desejada).
-9. Inicie o projeto: `docker compose up -d`
-10. Acesse o conteiner do projeto: `docker compose exec mediawiki bash`
-11. Execute a instalação das extensões: `composer update --no-dev -o`
-12. Execute a atualização do banco: `php maintenance/run.php update`
-13. Se tiver algum patch a aplicar, execute: `cd volumes/mediawiki;git apply ../src/patch-01.diff`
-14. Copie a pasta `images` do seu projeto para `volumes/mediawiki/`.
+## Operations
+The WikiFavelas production environment is **not accessible** to this work.
+Do not assume Docker, an SSH endpoint, exact file mounts, or permissions to
+upgrade the public site. On 2026-10-30 its public MediaWiki API reported
+MediaWiki 1.43.0, PHP 8.3.36 and MariaDB 11.8.6. This is not a full infra audit.
 
-## Editar topo
+Collaborate with Lívia and the responsible infrastructure operator for
+environment inventory, backups, isolated tests and deployment acceptance.
 
-https://www.mediawiki.org/wiki/Manual:Interface/Sitenotice
-
-
-## Menu
-
-https://www.mediawiki.org/wiki/Manual:Interface/Sidebar
-
-
-## CSS
-https://www.mediawiki.org/wiki/Manual:CSS
+Site-specific `LocalSettings.php`, Composer requirements and themes belong
+here; generic Docker/CI tooling stays in `mediawiki-development`.
+The prospective `port/embedvideo-maintained` branch records original draft
+PR #27 but is **not approved for production** without Composer and UI tests.
