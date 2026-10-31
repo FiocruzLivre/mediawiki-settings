@@ -1,24 +1,24 @@
-# Dicionário de Favelas Marielle Franco — configuração MediaWiki
+# WikiFavelas — configuração do MediaWiki
 
-This repository is the WikiFavelas **site-specific** configuration, dependency
-constraints and visual assets. It is not the generic MediaWiki base.
+Configuração e dependências do [Dicionário de Favelas Marielle Franco](https://wikifavelas.com.br/).
 
-## Historical origin
-Main is a direct rename of `FiocruzLivre/mediawiki-settings:wikifavelas`
-at commit `54c33e978d73c6886b1ab792bd2ca637d34d3bf3`.
-The old repository is to be renamed only after the Mapa has a published
-independent home and the current open PRs have been preserved or transferred.
+## Estrutura
 
-## Operations
-The WikiFavelas production environment is **not accessible** to this work.
-Do not assume Docker, an SSH endpoint, exact file mounts, or permissions to
-upgrade the public site. On 2026-10-30 its public MediaWiki API reported
-MediaWiki 1.43.0, PHP 8.3.36 and MariaDB 11.8.6. This is not a full infra audit.
+- `mediawiki/LocalSettings.php`: configuração da wiki e de suas extensões.
+- `mediawiki/composer.local.json`: dependências Composer específicas da WikiFavelas.
+- `patch-01.patch`: ajuste adicional que deve ser avaliado conforme a versão instalada.
 
-Collaborate with Lívia and the responsible infrastructure operator for
-environment inventory, backups, isolated tests and deployment acceptance.
+O ambiente genérico de desenvolvimento está em [mediawiki-development](https://github.com/FiocruzLivre/mediawiki-development).
 
-Site-specific `LocalSettings.php`, Composer requirements and themes belong
-here; generic Docker/CI tooling stays in `mediawiki-development`.
-The prospective `port/embedvideo-maintained` branch records original draft
-PR #27 but is **not approved for production** without Composer and UI tests.
+## Verificação
+
+Antes de atualizar o servidor, confira a compatibilidade das extensões, obtenha um backup restaurável do banco e dos arquivos enviados e reproduza a atualização em homologação. A infraestrutura e os caminhos de implantação precisam ser confirmados com a pessoa responsável pelo servidor.
+
+Para conferir os arquivos deste repositório:
+
+```sh
+php -l mediawiki/LocalSettings.php
+php -r 'json_decode(file_get_contents("mediawiki/composer.local.json"), true, 512, JSON_THROW_ON_ERROR);'
+```
+
+Não execute `composer update` diretamente na produção sem um conjunto de dependências previamente testado.

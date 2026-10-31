@@ -1,4 +1,4 @@
-name: Validate WikiFavelas site configuration
+name: Verificar configuracao da WikiFavelas
 
 on:
   push:
@@ -11,12 +11,11 @@ permissions:
   contents: read
 
 jobs:
-  syntax:
+  sintaxe:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: PHP 8.3 syntax check
+      - name: Verificar sintaxe PHP 8.3 e manifest Composer
         run: |
           docker run --rm -v "$PWD:/app:ro" -w /app --entrypoint php php:8.3-cli -l /app/mediawiki/LocalSettings.php
-      - name: Composer configuration JSON
-        run: python3 -m json.tool mediawiki/composer.local.json > /dev/null
+          docker run --rm -v "$PWD:/app:ro" -w /app --entrypoint php php:8.3-cli -r 'json_decode(file_get_contents("/app/mediawiki/composer.local.json"), true, 512, JSON_THROW_ON_ERROR);'
