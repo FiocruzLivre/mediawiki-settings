@@ -8,7 +8,7 @@ Configuração e dependências do [Dicionário de Favelas Marielle Franco](https
 - `mediawiki/composer.local.json`: dependências Composer específicas da WikiFavelas.
 - `patch-01.patch`: ajuste adicional que deve ser avaliado conforme a versão instalada.
 
-O ambiente genérico de desenvolvimento está em [mediawiki-development](https://github.com/FiocruzLivre/mediawiki-development).
+A imagem e o Compose usados também em produção ficam em [mediawiki-development](https://github.com/FiocruzLivre/mediawiki-development). Para uma nova instalação, monte `mediawiki/` deste repositório em `/var/www/src/mediawiki` ou clone o repositório em `volumes/src` do ambiente compartilhado. Banco, proxy, segredos e serviços locais são configurados por `.env` e `docker-compose.override.yml` não versionados, sem modificar o Compose principal.
 
 ## Verificação
 
