@@ -1,33 +1,24 @@
-# MediaWiki Settings
+# WikiFavelas — configuração do MediaWiki
 
-Este repositório se destina a manter as configurações e extensões dos projetos Mapa dos [Movimentos Sociais em Saúde](https://mapamovsaude.net.br) e [Wikifavelas](https://wikifavelas.com.br/).
+Configuração e dependências do [Dicionário de Favelas Marielle Franco](https://wikifavelas.com.br/).
 
-## Instalação
+## Estrutura
 
-1. Clone o projeto [mediawiki-development](https://github.com/FiocruzLivre/mediawiki-development.git): `git clone https://github.com/FiocruzLivre/mediawiki-development.git`
-2. Acesse a pasta do projeto: `cd mediawiki-development`
-3. Crie uma pasta chamada _volumes_: `mkdir volumes`
-4. Clone o projeto _mediawiki-settings_ dentro da pasta _volumes_ em uma pasta chamada _src_: `git clone https://github.com/FiocruzLivre/mediawiki-settings.git volumes/src` e faça o `checkout` para a branch relativa ao seu projeto.
-5. Crie o subdiretório _/mysql/dump_ dentro da pasta _volumes_: `mkdir -p volumes/mysql/dump`
-6. Faça um backup do banco do seu projeto e coloque na pasta `volumes/mysql/dump`
-7. É necessário que exista um arquivo `.env` na raíz do projeto mediawiki-development com as variáveis utilizadas no _LocalSettings.php_.
-8. Clone o projeto do [MediaWiki](https://www.mediawiki.org/) no subdiretório _volumes/mediawiki_: `git clone  --progress --single-branch --depth 1 --branch 1.43.0 --recurse-submodules -j 4 https://gerrit.wikimedia.org/r/mediawiki/core.git volumes/mediawiki` (Obs.: Lembre-se de substituir a branch pela versão desejada).
-9. Inicie o projeto: `docker compose up -d`
-10. Acesse o conteiner do projeto: `docker compose exec mediawiki bash`
-11. Execute a instalação das extensões: `composer update --no-dev -o`
-12. Execute a atualização do banco: `php maintenance/run.php update`
-13. Se tiver algum patch a aplicar, execute: `cd volumes/mediawiki;git apply ../src/patch-01.diff`
-14. Copie a pasta `images` do seu projeto para `volumes/mediawiki/`.
+- `mediawiki/LocalSettings.php`: configuração da wiki e de suas extensões.
+- `mediawiki/composer.local.json`: dependências Composer específicas da WikiFavelas.
+- `patch-01.patch`: ajuste adicional que deve ser avaliado conforme a versão instalada.
 
-## Editar topo
+A imagem e o Compose usados também em produção ficam em [mediawiki-development](https://github.com/FiocruzLivre/mediawiki-development). Para uma nova instalação, monte `mediawiki/` deste repositório em `/var/www/src/mediawiki` ou clone o repositório em `volumes/src` do ambiente compartilhado. Banco, proxy, segredos e serviços locais são configurados por `.env` e `docker-compose.override.yml` não versionados, sem modificar o Compose principal.
 
-https://www.mediawiki.org/wiki/Manual:Interface/Sitenotice
+## Verificação
 
+Antes de atualizar o servidor, confira a compatibilidade das extensões, obtenha um backup restaurável do banco e dos arquivos enviados e reproduza a atualização em homologação. A infraestrutura e os caminhos de implantação precisam ser confirmados com a pessoa responsável pelo servidor.
 
-## Menu
+Para conferir os arquivos deste repositório:
 
-https://www.mediawiki.org/wiki/Manual:Interface/Sidebar
+```sh
+php -l mediawiki/LocalSettings.php
+php -r 'json_decode(file_get_contents("mediawiki/composer.local.json"), true, 512, JSON_THROW_ON_ERROR);'
+```
 
-
-## CSS
-https://www.mediawiki.org/wiki/Manual:CSS
+Não execute `composer update` diretamente na produção sem um conjunto de dependências previamente testado.
